@@ -2,16 +2,13 @@ from config import TOKEN
 import discord
 import time
 from discord.ext import commands
+from repository import music_repository
 
 
 intents = discord.Intents.all()
 intents.members = True
 
 app = commands.Bot(command_prefix='!', intents=intents)
-
-
-def is_me(m):
-    return m.author == client.user
 
 @app.event
 async def on_ready():
@@ -33,5 +30,13 @@ async def 강동혁(ctx):
 async def 청소(ctx):
     time.sleep(0.5) 
     await ctx.channel.purge()
+
+@app.command()
+async def 이주형(ctx):
+    await ctx.send("뒤질뻔함")
+
+@app.command()
+async def 노래(ctx):
+    await ctx.send(music_repository.getPlayList())
 
 app.run(TOKEN)
