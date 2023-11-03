@@ -1,1 +1,1 @@
-# discord-bot
+할거 없어서 만드는 bot
